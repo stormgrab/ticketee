@@ -16,7 +16,23 @@ class ProjectsController < ApplicationController
 		if @project.save
 			redirect_to @project,:notice => "Project has been Created"
 		else
-			render :action => "new",:alert => "Name can't be blank"
+			flash[:alert] = "Project could not be created"
+			render :action => "new"
+		end
+	end
+
+	def edit
+		@project = Project.find(params[:id])
+	end
+
+	def update
+		@project = Project.find(params[:id])
+
+		if @project.update_attributes(params[:project])
+			redirect_to @project,:notice => "Project has been updated"
+		else
+			flash[:alert] = "Project could not be updated"
+			render :action => "edit"
 		end
 	end
 end

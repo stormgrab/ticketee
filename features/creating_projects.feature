@@ -16,4 +16,4 @@ Scenario:Creating a Project
 
 Scenario:Creating a Project without a name
 	And I press "Create Project"
-	Then I should see "Name can't be blank"
+	Then I should see "Project could not be created"
