@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 	def index
-
+		@projects = Project.all
 	end
 
 	def show
@@ -15,6 +15,8 @@ class ProjectsController < ApplicationController
 		@project = Project.new(params[:project])
 		if @project.save
 			redirect_to @project,:notice => "Project has been Created"
+		else
+			render :action => "new",:alert => "Name can't be blank"
 		end
 	end
 end
