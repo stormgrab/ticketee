@@ -5,14 +5,20 @@ Feature: Viewing tickets
 
 Background:
 	Given there is a project called "TextMate 2"
-	And that project has a ticket:
+	And there are the following users:
+		| email | password |
+		| user@ticketee.com | password |
+	And "user@ticketee.com" has created a ticket for this project:
 		| title	| description	|
 		| Make it shiny! | Gradients! Starbursts! Oh my! |
 	And there is a project called "Internet Explorer"
-	And that project has a ticket:
+	And "user@ticketee.com" has created a ticket for this project:
 		| title	| description	|
 		| Standards compliance | Isn\'t a joke. |
 	And I am on the homepage
+	
+
+
 
 Scenario: Viewing tickets for a given project
 	When I follow "TextMate 2"

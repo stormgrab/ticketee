@@ -5,7 +5,11 @@ Feature: Editing Tickets
 
 Background:
 	Given there is a project called "TextMate"
-	And that project has a ticket:
+	And there are the following users:
+		| email | password |
+		| user@ticketee.com | password |
+	And I am signed in as them
+	And "user@ticketee.com" has created a ticket for this project:
 		| title | description |
 		| Make it shiny! | Gradients! Starbursts! Oh my! |
 	Given I am on the homepage

@@ -3,7 +3,7 @@
 <head>
 	<<title>
 		<% if content_for?(:title) %>
-			<%= yield(:title).strip %>
+			<%= yield(:title) %>
 		<% else %>
 			Ticketee
 		<% end %>
@@ -20,6 +20,7 @@
 		<% if user_signed_in? %>
 			Signed in as <%= current_user.email %>
 		<% else %>
+			<%= link_to "Sign in", new_user_session_path %>
 			<%= link_to "Sign Up", new_user_registration_path %>
 		<% end %>
 	</nav>
