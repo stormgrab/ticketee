@@ -5,6 +5,10 @@ Feature: Editing Projects
 
 Background:
 	Given there is a project called "TextMate"
+	And there are the following users:
+		| email | password | admin |
+		| user@ticketee.com | password | true |
+	And I am signed in as them
 	And I am on the homepage
 	And I follow "TextMate"
 	And I follow "Edit Project"

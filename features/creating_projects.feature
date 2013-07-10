@@ -5,7 +5,11 @@ Feature:Creating Projects
 
 Background:
 	Given I am on the homepage
-	When I follow "New Project"
+	And there are the following users:
+		| email | password | admin |
+		| user@ticketee.com | password | true |
+	And I am signed in as them
+ 	When I follow "New Project"
 
 Scenario:Creating a Project	
 	And I fill in "Name" with "TextMate"
