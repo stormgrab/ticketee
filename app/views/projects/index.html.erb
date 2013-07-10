@@ -7,6 +7,8 @@
 </ul>
 
 <%= admins_only do %>
-	<%=link_to "New Project", new_project_path %>
+	<%=link_to "New Project", new_project_path %> <br />
+	<%=link_to "Administrator Control Panel", admin_root_path %>
+
 <% end %>
 
