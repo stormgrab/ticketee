@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-	before_filter :find_user, :only => [:show,:edit,:update,:delete]
+	before_filter :find_user, :only => [:show,:edit,:update,:destroy]
 
 	def index
 		@users = User.all(:order => "email")
@@ -32,7 +32,7 @@ class Admin::UsersController < Admin::BaseController
 	def update
 		admin = params[:user].delete(:admin)
 		@user.admin = admin == "1"
-		
+
 		if params[:user][:password].blank?
 			params[:user].delete(:password)
 			params[:user].delete(:password_confirmation)
@@ -47,6 +47,14 @@ class Admin::UsersController < Admin::BaseController
 		end
 	end
 
+	def destroy
+		if @user == current_user
+			flash[:alert] = "You cannot delete yourself!"
+		else
+			@user.destroy
+			redirect_to admin_users_path, :notice => "User has been deleted."
+		end
+	end
 
 	private
 	def find_user

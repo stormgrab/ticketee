@@ -12,6 +12,7 @@ Background:
 	And "user@ticketee.com" has created a ticket for this project:
 		| title | description |
 		| Make it shiny! | Gradients! Starbursts! Oh my! |
+	And "user@ticketee.com" can view the "TextMate" project
 	Given I am on the homepage
 	And I follow "TextMate"
 	And I follow "Make it shiny!"

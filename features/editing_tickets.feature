@@ -9,6 +9,7 @@ Background:
 		| email | password |
 		| user@ticketee.com | password |
 	And I am signed in as them
+	And "user@ticketee.com" can view the "TextMate" project
 	And "user@ticketee.com" has created a ticket for this project:
 		| title | description |
 		| Make it shiny! | Gradients! Starbursts! Oh my! |
